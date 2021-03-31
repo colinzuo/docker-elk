@@ -25,6 +25,7 @@ services:
       discovery.type: single-node
     networks:
       - elk
+    restart: always
 
   logstash:
     build:
@@ -50,6 +51,7 @@ services:
       LS_JAVA_OPTS: "-Xmx2048m -Xms2048m"
     networks:
       - elk
+    restart: always
     depends_on:
       - elasticsearch
 
@@ -67,6 +69,7 @@ services:
       - "5601:5601"
     networks:
       - elk
+    restart: always
     depends_on:
       - elasticsearch
 
